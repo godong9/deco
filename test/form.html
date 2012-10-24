@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<META http-equiv=Content-Type content="text/html; charset=utf-8">
+		<script src="jquery-1.5.2.min.js"></script>
+		<script type="text/javascript" src="ajax.js"></script>
+	</head>
+	
+	<body>
+		<h1>기업 설명서</h1>
+		<table align="center" border="1" style="font-size:14px;width:500;">
+			<tr>
+				<td width="200" align="right">기업 명&nbsp;</td>
+				<td width="300" align="left">
+					<select id="name" name="name" onChange="getContent(this);">
+						<option value="_blank">기업선택</option>
+						<option value="덕수궁">덕수궁</option>
+						<option value="창경궁">창경궁</option>
+					</select>
+			</tr>
+			<tr>
+				<td width="200" align="right">가격&nbsp;</td>
+				<td width="300" align="left">
+					<input type="text" id="price" value=""></input>
+				</td>
+			</tr>
+			<tr>
+				<td width="200" align="right">전화&nbsp;</td>
+				<td width="300" align="left">
+					<input type="text" id="phone" value=""></input>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
