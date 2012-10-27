@@ -1,10 +1,10 @@
 <?
-	require_once( $_SERVER['DOCUMENT_ROOT'] . "/lib/r_course/deco_choice.inc");
+	require_once( $_SERVER['DOCUMENT_ROOT'] . "/lib/r_course/r_course.inc");
 
-	$DECOCHOICE = new DECOCHOICE();
-	$DECOCHOICE->init(true);
+	$RCOURSE = new RCOURSE();
+	$RCOURSE->init(true);
 
 	$params = array();
-	$array = $DECOCHOICE->getDecoChoice($params);
+	$array = $RCOURSE->getDecoChoice($params);
 	echo json_encode($array);
 ?>

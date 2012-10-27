@@ -1,10 +1,10 @@
 <?
-	require_once( $_SERVER['DOCUMENT_ROOT'] . "/lib/r_course/user_recommend.inc");
+	require_once( $_SERVER['DOCUMENT_ROOT'] . "/lib/r_course/r_course.inc");
 
-	$USERRECOMMEND = new USERRECOMMEND();
-	$USERRECOMMEND->init(true);
+	$RCOURSE = new RCOURSE();
+	$RCOURSE->init(true);
 
 	$params = array();
-	$array = $USERRECOMMEND->getUserRecommend($params);
+	$array = $RCOURSE->getUserRecommend($params);
 	echo json_encode($array);
 ?>
