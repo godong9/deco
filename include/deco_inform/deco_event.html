@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<title>Page Title</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+	$(document).bind("mobileinit", function() {
+		//alert("test");
+		$("#listpage").live("pageshow", function(event, ui) {
+			getData();
+		});
+	
+		function getData() {
+				var data_url = "/ajax/deco_inform/deco_event.php";
+				$.ajax({
+				type: "POST",
+				dataType: 'json',
+				contentType: "application/json; charset=utf-8",
+				url: data_url,
+				cache: false,
+				async: true,
+				success: onSuccess
+			});
+			
+			function onSuccess(data) {
+				for( idx in data ) {
+						var title = data[idx].title;
+						var content = data[idx].content;
+						var reg_date = data[idx].reg_date;
+						var tmp = "<li>"+title+" / "+content+" / "+reg_date+"</li>";
+						$('ul').append(tmp).listview('refresh');
+				}		
+			}
+		}
+	});
+
+	
+</script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+</head>
+<body>
+
+<div data-role="page" id="listpage">
+	<div data-role="header">
+		<h1>Deco Event</h1>
+	</div>
+	<div data-role="content">
+		<ul data-role="listview">
+		</ul>
+	</div>
+</div> 
+
+</body>
+</html>
